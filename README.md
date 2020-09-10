@@ -8,7 +8,7 @@ TODO: Write installation instructions here
 
 ## Usage
 
-TODO: Write usage instructions here
+`shards build && bin/lol-worlds-draw`
 
 ## Development
 
