@@ -1,5 +1,4 @@
 require "../.././spec_helper"
-require "lol/worlds/pool"
 
 module Lol::Worlds
   describe Pool do
