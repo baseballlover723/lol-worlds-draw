@@ -1,23 +1,23 @@
+require "json"
+
 module Lol::Worlds
   enum Region
-    
-    Two
-    Three
-    Four
+    Brazil
+    CIS
+    China
+    Europe
+    Japan
+    Korea
+    Latin_America
+    North_America
+    Oceania
+    PCS
+    Turkey
 
-    def self.get_pool(numb : Int)
-      case numb
-      when 1
-        One
-      when 2
-        Two
-      when 3
-        Three
-      when 4
-        Four
-      else
-        raise ArgumentError.new
-      end
+    def to_json(io)
+      io << '"'
+      to_s(io)
+      io << '"'
     end
   end
 end
