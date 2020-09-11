@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Top Esports",
+        "pool": 1,
+        "region": "China"
+    },
+    {
+        "name": "G2 Esports",
+        "pool": 1,
+        "region": "Europe"
+    },
+    {
+        "name": "DAMWON Gaming",
+        "pool": 1,
+        "region": "Korea"
+    },
+    {
+        "name": "Team SoloMid",
+        "pool": 1,
+        "region": "North_America"
+    }
+]
