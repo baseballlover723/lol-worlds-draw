@@ -1,5 +1,3 @@
-require "json"
-
 module Lol::Worlds
   enum Region
     Brazil
@@ -14,10 +12,8 @@ module Lol::Worlds
     PCS
     Turkey
 
-    def to_json(io)
-      io << '"'
-      to_s(io)
-      io << '"'
+    def to_json(json : JSON::Builder)
+      json.string(self)
     end
   end
 end
