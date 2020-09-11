@@ -1,9 +1,3 @@
-module Main
-  VERSION = "0.1.0"
+require "./lol_worlds"
 
-  def self.main(args)
-    puts "in main"
-  end
-end
-
-Main.main(ARGV)
+LolWorlds.main(ARGV)

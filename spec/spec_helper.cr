@@ -1,2 +1,3 @@
 require "spec"
-require "../src/lol/worlds/*"
+
+require "../src/lol_worlds"
