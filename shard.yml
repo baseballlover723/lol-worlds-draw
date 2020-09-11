@@ -2,7 +2,11 @@ name: lol-worlds-draw
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - Philip Ross <dev@baseballlover723.com>
+
+repository: "https://github.com/baseballlover723/lol-worlds-draw.git"
+
+homepage: "https://github.com/baseballlover723/lol-worlds-draw"
 
 targets:
   lol-worlds-draw:
