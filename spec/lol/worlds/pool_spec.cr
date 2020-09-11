@@ -5,6 +5,11 @@ module Lol::Worlds
     describe "json" do
       enums = {"1": Pool::One, "2": Pool::Two, "3": Pool::Three, "4": Pool::Four}
 
+      it "reserializes to itself" do
+        pool = Pool::One
+        Pool.from_json(pool.to_json).should eq(pool)
+      end  
+
       describe "serializes" do
         enums.each do |json_value, object|
           it "#{object} correctly" do

@@ -17,6 +17,11 @@ module Lol::Worlds
         "\"Turkey\"":        Region::Turkey,
       }
 
+      it "reserializes to itself" do
+        region = Region::North_America
+        Region.from_json(region.to_json).should eq(region)
+      end  
+
       describe "serializes" do
         enums.each do |json_value, object|
           it "#{object} correctly" do
