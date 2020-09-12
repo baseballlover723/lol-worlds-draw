@@ -2,7 +2,6 @@ require "./team"
 
 module Lol::Worlds
   class Group < Array(Team)
-
     def initialize
       super(4)
     end

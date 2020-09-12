@@ -20,7 +20,7 @@ module Lol::Worlds
       it "reserializes to itself" do
         region = Region::North_America
         Region.from_json(region.to_json).should eq(region)
-      end  
+      end
 
       describe "serializes" do
         enums.each do |json_value, object|

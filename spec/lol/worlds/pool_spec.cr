@@ -8,7 +8,7 @@ module Lol::Worlds
       it "reserializes to itself" do
         pool = Pool::One
         Pool.from_json(pool.to_json).should eq(pool)
-      end  
+      end
 
       describe "serializes" do
         enums.each do |json_value, object|
