@@ -9,6 +9,7 @@ module Lol::Worlds
     it "can store 4 elements" do
       team = Team.new("TSM", Pool::One, Region::North_America)
       group = Group{team, team, team, team}
+      group.size.should eq(4)
     end
 
     it "raises an exception if it grows more then 4 elements big" do

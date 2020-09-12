@@ -39,7 +39,7 @@ module Lol::Worlds
     describe "deserializes" do
       it "can read all of the seeds" do
         seeds = File.read("files/seeds.json")
-        teams = Array(Team).from_json(seeds)
+        Array(Team).from_json(seeds)
       end
 
       it "can read from a json string" do
