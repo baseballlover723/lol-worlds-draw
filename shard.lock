@@ -4,3 +4,7 @@ shards:
     git: https://github.com/crystal-ameba/ameba.git
     version: 0.13.2
 
+  crytic:
+    git: https://github.com/hanneskaeufler/crytic.git
+    version: 7.0.0
+

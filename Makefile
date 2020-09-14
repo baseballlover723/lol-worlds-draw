@@ -14,6 +14,8 @@ install:
 	shards check || shards install
 lint: install
 	./bin/ameba --all
+mutation_test: install
+	./bin/crytic test
 test:
 	$(CRYSTAL_BIN) spec
-test_all: install test lint
+test_all: install lint test mutation_test
