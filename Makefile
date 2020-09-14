@@ -7,7 +7,7 @@ build: bin/lol-worlds-draw
 bin/lol-worlds-draw:
 	$(SHARDS_BIN) build $(CRFLAGS)
 clean:
-	rm -f ./bin/lol-worlds-draw ./bin/lol-worlds-draw.dwarf
+	rm -rf ./bin/lol-worlds-draw ./bin/lol-worlds-draw.dwarf ./output
 distclean: clean
 	rm -rf .crystal .shards libs lib bin
 install:
