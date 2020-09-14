@@ -13,6 +13,20 @@ describe Set4 do
     end
   end
 
+  it "raises an exception if it grows more then 4 elements big with add" do
+    set = Set4{1, 2, 3, 4}
+    expect_raises(IndexError) do
+      set.add 5
+    end
+  end
+
+  it "raises an exception if it grows more then 4 elements big with add?" do
+    set = Set4{1, 2, 3, 4}
+    expect_raises(IndexError) do
+      set.add? 5
+    end
+  end
+
   it "raises an exception if it is initialized with more then 4 elements" do
     expect_raises(IndexError) do
       Set4{1, 2, 3, 4, 5}

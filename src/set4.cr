@@ -21,9 +21,18 @@ class Set4(T)
   end
 
   def <<(element : T)
+    add element
+  end
+
+  def add(element : T)
     raise IndexError.new("a Group can only have 4 teams") if size >= 4
-    @inner << element
+    @inner.add(element)
     self
+  end
+
+  def add?(element : T)
+    raise IndexError.new("a Group can only have 4 teams") if size >= 4
+    @inner.add?(element)
   end
 
   def ==(other)
