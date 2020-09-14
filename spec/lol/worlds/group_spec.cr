@@ -23,5 +23,29 @@ module Lol::Worlds
         group1.should eq(group2)
       end
     end
+
+    it "reserializes to itself" do
+      group = Group{Team.new("TSM", Pool::One, Region::North_America)}
+      Group.from_json(group.to_json).should eq(group)
+    end
+
+    describe "serializes" do
+      it "a group correctly" do
+        team = Team.new("TSM", Pool::One, Region::North_America)
+        group = Group{team}
+        group.to_json.should eq("[" + team.to_json + "]")
+      end
+    end
+
+    describe "deserializes" do
+      it "can read from a json string" do
+        team = Team.new("TSM", Pool::One, Region::North_America)
+        json = "[" + team.to_json + "]"
+        group = Group.from_json(json)
+
+        group.size.should eq(1)
+        group.each.next.as(Team).should eq(team)
+      end
+    end
   end
 end
