@@ -18,5 +18,25 @@
         "name": "Team SoloMid",
         "pool": 1,
         "region": "North_America"
+    },
+    {
+        "name": "JD Gaming",
+        "pool": 2,
+        "region": "China"
+    },
+    {
+        "name": "Suning",
+        "pool": 2,
+        "region": "China"
+    },
+    {
+        "name": "Fnatic",
+        "pool": 2,
+        "region": "Europe"
+    },
+    {
+        "name": "DRX",
+        "pool": 2,
+        "region": "Korea"
     }
 ]
