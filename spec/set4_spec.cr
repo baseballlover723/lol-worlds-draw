@@ -6,29 +6,34 @@ describe Set4 do
     set.size.should eq(4)
   end
 
+  it "can add? with 3 elements" do
+    set = Set4{1, 2, 3}
+    set.add?(4).should be_true
+  end
+
   it "raises an exception if it grows more then 4 elements big" do
     set = Set4{1, 2, 3, 4}
-    expect_raises(IndexError) do
+    expect_raises(IndexError, /can only have/) do
       set << 5
     end
   end
 
   it "raises an exception if it grows more then 4 elements big with add" do
     set = Set4{1, 2, 3, 4}
-    expect_raises(IndexError) do
+    expect_raises(IndexError, /can only have/) do
       set.add 5
     end
   end
 
   it "raises an exception if it grows more then 4 elements big with add?" do
     set = Set4{1, 2, 3, 4}
-    expect_raises(IndexError) do
+    expect_raises(IndexError, /can only have/) do
       set.add? 5
     end
   end
 
   it "raises an exception if it is initialized with more then 4 elements" do
-    expect_raises(IndexError) do
+    expect_raises(IndexError, /can only have/) do
       Set4{1, 2, 3, 4, 5}
     end
   end
@@ -70,7 +75,7 @@ describe Set4 do
     it "errors if there are more then 4 teams" do
       json = [1, 2, 3, 4, 5].to_json
 
-      expect_raises(IndexError) do
+      expect_raises(IndexError, /can only have/) do
         Set4(Int32).from_json(json)
       end
     end

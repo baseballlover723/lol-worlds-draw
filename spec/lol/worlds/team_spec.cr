@@ -24,6 +24,32 @@ module Lol::Worlds
       end
     end
 
+    describe "==" do
+      it "is equal if they have the same attributes" do
+        team1 = Team.new("TSM", Pool::One, Region::North_America)
+        team2 = Team.new("TSM", Pool::One, Region::North_America)
+        team1.should eq(team2)
+      end
+
+      it "is not equal if they have different names" do
+        team1 = Team.new("JD Gaming", Pool::Two, Region::China)
+        team2 = Team.new("Suning", Pool::Two, Region::China)
+        team1.should_not eq(team2)
+      end
+
+      it "is not equal if they have different pools" do
+        team1 = Team.new("TSM", Pool::One, Region::North_America)
+        team2 = Team.new("Team Liquid", Pool::Two, Region::North_America)
+        team1.should_not eq(team2)
+      end
+
+      it "is not equal if they have different regions" do
+        team1 = Team.new("TSM", Pool::One, Region::North_America)
+        team2 = Team.new("G2", Pool::One, Region::Europe)
+        team1.should_not eq(team2)
+      end
+    end
+
     it "reserializes to itself" do
       team = Team.new("TSM", Pool::One, Region::North_America)
       Team.from_json(team.to_json).should eq(team)
