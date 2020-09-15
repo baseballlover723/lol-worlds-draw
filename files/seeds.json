@@ -38,5 +38,25 @@
         "name": "DRX",
         "pool": 2,
         "region": "Korea"
+    },
+    {
+        "name": "Rouge",
+        "pool": 3,
+        "region": "Europe"
+    },
+    {
+        "name": "Gen.G",
+        "pool": 3,
+        "region": "Korea"
+    },
+    {
+        "name": "FlyQuest",
+        "pool": 3,
+        "region": "North_America"
+    },
+    {
+        "name": "Machi Esports",
+        "pool": 3,
+        "region": "PCS"
     }
 ]

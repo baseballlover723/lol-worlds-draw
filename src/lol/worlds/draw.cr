@@ -41,18 +41,32 @@ module Lol::Worlds
     end
 
     def add(team : Team)
-      puts ""
-      puts "adding team: #{team.name}"
+      puts "" if Lol::Worlds::Sim::VERBOSE
+      puts "adding team: #{team.name}" if Lol::Worlds::Sim::VERBOSE
       group = @groups.zip(@added_to_group)
         .reject { |_group, added| added }
         .map { |group, _| group }
         .find { |group| group.can_add?(team) }
-        .as(Group)
+
+      return false if group.nil?
+      group = group.as(Group)
 
       @added_to_group[@groups.index(group).as(Int)] = true
 
-      puts "adding to group #{group.to_json}"
+      puts "adding to group #{group.to_json}" if Lol::Worlds::Sim::VERBOSE
       group << team
+      true
+    end
+
+    def swap(team1 : Team, team2 : Team)
+      puts "swap #{team1.name} and #{team2.name}" if Lol::Worlds::Sim::VERBOSE
+      team1_group = @groups.find do |group|
+        group.any? { |team| team == team1 }
+      end.as(Group)
+      team1_group.delete(team1)
+      @added_to_group[@groups.index(team1_group).as(Int)] = false
+      add(team2)
+      add(team1)
     end
 
     # slow
