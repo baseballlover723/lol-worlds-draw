@@ -1,8 +1,8 @@
 require "./lol/worlds/*"
 
 module Lol::Worlds
-  VERSION = "0.1.0"
-  SEED_DIRECTORY = "files/"
+  VERSION          = "0.1.0"
+  SEED_DIRECTORY   = "files/"
   OUTPUT_DIRECTORY = "output/"
 
   def self.main(args)
@@ -11,8 +11,9 @@ module Lol::Worlds
 
     seed_files = ["seeds.json"]
     seed_files.each do |file|
-      teams = Array(Team).from_json(File.read(SEED_DIRECTORY + file))
-      puts teams
+      draws = Sim.new(file).calc
+
+      puts draws.inspect
     end
   end
 end

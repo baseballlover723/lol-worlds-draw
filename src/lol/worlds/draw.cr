@@ -4,6 +4,7 @@ require "./group"
 module Lol::Worlds
   class Draw
     @groups : StaticArray(Group, 4)
+    @added_to_group = StaticArray(Bool, 4).new { false }
 
     def initialize
       @groups = StaticArray(Group, 4).new { Group.new }
@@ -33,6 +34,25 @@ module Lol::Worlds
       json.array do
         each &.to_json(json)
       end
+    end
+
+    def clone
+      Draw.from_json(to_json)
+    end
+
+    def add(team : Team)
+      puts ""
+      puts "adding team: #{team.name}"
+      group = @groups.zip(@added_to_group)
+        .reject { |_group, added| added }
+        .map { |group, _| group }
+        .find { |group| group.can_add?(team) }
+        .as(Group)
+
+      @added_to_group[@groups.index(group).as(Int)] = true
+
+      puts "adding to group #{group.to_json}"
+      group << team
     end
 
     # slow
